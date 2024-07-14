@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<!--
+  ~ @Author:    Dan Lewis (dan.lewis@employer.tbc)
+  ~ @Copyright: 2024 Employer (https://Employer.tbc)
+  ~ @Package:   Employer_Recruitment
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Employer::top_level" title="Employer" module="Employer_Recruitment" sortOrder="2"
+             resource="Magento_Backend::content"/>
+        <add id="Employer_Recruitment::employer_recruitment_applicants" title="Applications"
+             module="Employer_Recruitment"
+             sortOrder="0" resource="Magento_Backend::content" parent="Employer::top_level"
+             action="employer_recruitment/applicants/index"/>
+    </menu>
+</config>

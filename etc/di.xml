@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!--
+  ~ @Author:    Dan Lewis (dan.lewis@employer.tbc)
+  ~ @Copyright: 2024 Employer (https://Employer.tbc)
+  ~ @Package:   Employer_Recruitment
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Employer\Recruitment\Api\ApplyApiManagementInterface"
+                type="Employer\Recruitment\Model\ApplyApiManagement"/>
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="Dummy" xsi:type="object">Employer\Recruitment\Console\Command\DummyData</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Employer\Recruitment\Api\ApplicantsRepositoryInterface"
+                type="Employer\Recruitment\Model\ApplicantsRepository"/>
+    <preference for="Employer\Recruitment\Api\Data\ApplicantsInterface" type="Employer\Recruitment\Model\Applicants"/>
+    <preference for="Employer\Recruitment\Api\Data\ApplicantsSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults"/>
+    <virtualType name="Employer\Recruitment\Model\ResourceModel\Applicants\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">employer_recruitment_applicants</argument>
+            <argument name="resourceModel" xsi:type="string">
+                Employer\Recruitment\Model\ResourceModel\Applicants\Collection
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="employer_recruitment_applicants_listing_data_source" xsi:type="string">
+                    Employer\Recruitment\Model\ResourceModel\Applicants\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

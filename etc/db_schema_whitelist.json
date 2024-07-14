@@ -1,0 +1,13 @@
+{
+    "employer_recruitment_applicants": {
+        "column": {
+            "applicants_id": true,
+            "Name": true,
+            "Position": true,
+            "Decision": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

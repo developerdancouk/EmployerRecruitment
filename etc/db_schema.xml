@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!--
+  ~ @Author:    Dan Lewis (dan.lewis@employer.tbc)
+  ~ @Copyright: 2024 Employer (https://Employer.tbc)
+  ~ @Package:   Employer_Recruitment
+  -->
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="employer_recruitment_applicants" resource="default" engine="innodb"
+           comment="Received Applications Table">
+        <column xsi:type="int" name="applicants_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="applicants_id"/>
+        </constraint>
+        <column name="Name" nullable="true" xsi:type="text" comment="Name"/>
+        <column name="Position" nullable="true" xsi:type="text" comment="Position"/>
+        <column name="Decision" nullable="true" xsi:type="text" comment="Decision"/>
+    </table>
+</schema>

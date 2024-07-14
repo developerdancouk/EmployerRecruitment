@@ -1,0 +1,22 @@
+{
+  "name": "employer/module-recruitment",
+  "description": "Example Module",
+  "type": "magento2-module",
+  "license": "GPL-3.0",
+  "authors": [
+    {
+      "name": "Dan lewis",
+      "email": "dan.lewis@employer.tbc"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Employer\\Recruitment\\": ""
+    }
+  }
+}

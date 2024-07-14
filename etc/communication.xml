@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+  ~ @Author:    Dan Lewis (dan.lewis@employer.tbc)
+  ~ @Copyright: 2024 Employer (https://Employer.tbc)
+  ~ @Package:   Employer_Recruitment
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Communication/etc/communication.xsd">
+    <topic name="recruitment.queue.applications.process" request="string"/>
+</config>

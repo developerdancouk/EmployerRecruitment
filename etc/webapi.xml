@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<!--
+  ~ @Author:    Dan Lewis (dan.lewis@employer.tbc)
+  ~ @Copyright: 2024 Employer (https://Employer.tbc)
+  ~ @Package:   Employer_Recruitment
+  -->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/employer-recruitment/apply" method="POST">
+        <service class="Employer\Recruitment\Api\ApplyApiManagementInterface" method="postApply"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

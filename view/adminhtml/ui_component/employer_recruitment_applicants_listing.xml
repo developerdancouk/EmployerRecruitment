@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<!--
+  ~ @Author:    Dan Lewis (dan.lewis@employer.tbc)
+  ~ @Copyright: 2024 Employer (https://Employer.tbc)
+  ~ @Package:   Employer_Recruitment
+  -->
+
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                employer_recruitment_applicants_listing.employer_recruitment_applicants_listing_data_source
+            </item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>employer_recruitment_applicants_columns</spinner>
+        <deps>
+            <dep>employer_recruitment_applicants_listing.employer_recruitment_applicants_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="employer_recruitment_applicants_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">applicants_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Employer_Recruitment::Applicants</aclResource>
+        <dataProvider name="employer_recruitment_applicants_listing_data_source"
+                      class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>applicants_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="employer_recruitment_applicants_columns">
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>applicants_id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="applicants_id">
+            <settings>
+                <filter>text</filter>
+                <sorting>asc</sorting>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+        <column name="Name">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Name</label>
+            </settings>
+        </column>
+        <column name="Position">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Position</label>
+            </settings>
+        </column>
+        <column name="Decision">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Decision</label>
+            </settings>
+        </column>
+    </columns>
+</listing>
